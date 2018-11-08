@@ -4,19 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
-import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-Vue.use(BootstrapVue);
-Vue.config.productionTip = false;
+import BootstrapVue  from 'bootstrap-vue'
+Vue.use(BootstrapVue)
+Vue.config.productionTip = false
 
 let config = {
-  apiKey: "AIzaSyCRXFpzy_uHle6dNPPXDgOpJpLgUYyC6mQ",
-  authDomain: "vue-dashboard-login.firebaseapp.com",
-  databaseURL: "https://vue-dashboard-login.firebaseio.com",
-  projectId: "vue-dashboard-login",
-  storageBucket: "vue-dashboard-login.appspot.com",
-  messagingSenderId: "760313318831"
+  
 };
 firebase.initializeApp(config);
 
