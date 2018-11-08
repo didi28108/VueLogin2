@@ -22,7 +22,7 @@
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
           (user) => {
             localStorage.setItem('token', 'ImLogin')
-            this.$router.replace('dashboard')
+            this.$router.push('/dashboard')
           },
           (err) => {
             alert('Oops. ' + err.message)

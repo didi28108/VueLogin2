@@ -12,7 +12,7 @@ let router = new Router({
   routes: [
     {
       path: '*',
-      redirect: '/login'
+      redirect: '/',
     },
     {
       path: '/',
@@ -20,7 +20,7 @@ let router = new Router({
     },
     {
       path: '/login',
-      name: 'Login',
+      name: 'login',
       component: Login
     },
     /*{
@@ -49,23 +49,23 @@ let router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  let currentUser = firebase.auth().currentUser;
-  let requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  const isLogin = localStorage.getItem('token') === 'ImLogin' ;
+  let currentUser = firebase.auth().currentUser
+  let requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  const isLogin = localStorage.getItem('token') === 'ImLogin'
   if( isLogin ){
-    next('/dashboard');
+    next()
   } else {
     if( to.path !== '/login'){
-      next('/login');
+      next('/login')
     } else {
-      next();
+      next()
     }
   }
-  
+  /*
   if (requiresAuth && !currentUser) next('/login')
   else if (!requiresAuth && currentUser) next('/dashboard')
   else next()
-  
+  */
 })
 
 export default router
