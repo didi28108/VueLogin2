@@ -9,7 +9,12 @@ Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 let config = {
-  
+  apiKey: "AIzaSyCRXFpzy_uHle6dNPPXDgOpJpLgUYyC6mQ",
+  authDomain: "vue-dashboard-login.firebaseapp.com",
+  databaseURL: "https://vue-dashboard-login.firebaseio.com",
+  projectId: "vue-dashboard-login",
+  storageBucket: "vue-dashboard-login.appspot.com",
+  messagingSenderId: "760313318831"
 };
 firebase.initializeApp(config);
 
