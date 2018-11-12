@@ -1,14 +1,15 @@
 <template>
   <div class="login">
     <h3>Sign In</h3>
-    <input type="text" v-model="email" placeholder="Email"><br>
-    <input type="password" v-model="password" placeholder="Password"><br>
-    <button v-on:click="signIn">Connection</button>
+    <el-input type="text" v-model="email" placeholder="Email" clearable></el-input>
+    <el-input type="password" v-model="password" placeholder="Password" clearable></el-input>
+    <el-button type="primary" v-on:click="signIn">Connection</el-button>
   </div>
 </template>
 
 <script>
   import firebase from 'firebase'
+  import {Input, Button} from 'element-ui'
   export default {
     name: 'login',
     data: function() {
@@ -29,11 +30,16 @@
           }
         );
       }
+    },
+    components:{
+      'el-input': Input,
+      'el-button': Button,
     }
   }
 </script>
 
 <style scoped>  /* "scoped" attribute limit the CSS to this component only */
+  @import url("element-ui/lib/theme-chalk/index.css");
   .login {
     margin-top: 40px;
   }

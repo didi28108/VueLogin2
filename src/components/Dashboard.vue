@@ -1,64 +1,5 @@
 <template>
-    <div class='container' id='dashboard'>
-        <div class='row'>
-            <div class="col-sm-3">
-                <div class="card">
-                    <h5 class="card-header">濕度</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ humidity }}</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                    <h5 class="card-header">溫度</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ temperture }}</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                    <h5 class="card-header">土壤濕度1</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ soild1humid1 }}</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                    <h5 class="card-header">土壤濕度2</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ soild1humid2 }}</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <h5 class="card-header">PH值</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ ph }}</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <h5 class="card-header">水位1</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ waterLevelTank1 }}</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <h5 class="card-header">水位2</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ waterLevelTank2 }}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </template>
 
 <script>
@@ -105,4 +46,7 @@ export default {
   }
 };
 </script>
+<style scoped>
+    @import url("element-ui/lib/theme-chalk/index.css");
+</style>
 

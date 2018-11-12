@@ -4,12 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
-import BootstrapVue  from 'bootstrap-vue'
-Vue.use(BootstrapVue)
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 let config = {
-  
+ 
 };
 firebase.initializeApp(config);
 
