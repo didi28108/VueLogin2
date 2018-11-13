@@ -1,9 +1,31 @@
 <template>
-    
+    <el-row :gutter="10">
+  <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+      <div>
+
+      </div>
+  </el-col>
+  <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+      <div>
+
+      </div>
+  </el-col>
+  <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+      <div>
+
+      </div>
+  </el-col>
+  <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+      <div>
+
+      </div>
+  </el-col>
+</el-row>
 </template>
 
 <script>
 import axios from "axios";
+import { Row, Col, Card } from 'element-ui';
 export default {
   name: "dashboard",
   data: function() {
@@ -43,6 +65,11 @@ export default {
           console.log(error);
         });
     }
+  },
+  components: {
+     'el-row' : Row,
+     'el-col' : Col,
+     'el-card' : Card,
   }
 };
 </script>
