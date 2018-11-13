@@ -1,31 +1,31 @@
 <template>
-    <el-row :gutter="10">
-  <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-      <div>
-
-      </div>
+<el-row :gutter="10">
+  <el-col :xs="4" :sm="6" :md="4" :lg="3" :xl="5">
+    <el-card class="box-card">
+          <div>dick</div>
+    </el-card>
   </el-col>
-  <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
-      <div>
-
-      </div>
+  <el-col :xs="4" :sm="6" :md="5" :lg="7" :xl="11">
+    <el-card class="box-card">
+          <div>bitch</div>
+    </el-card>
   </el-col>
-  <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
-      <div>
-
-      </div>
+  <el-col :xs="4" :sm="6" :md="5" :lg="7" :xl="11">
+    <el-card class="box-card">
+          <div>puss</div>
+    </el-card>
   </el-col>
-  <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-      <div>
-
-      </div>
+  <el-col :xs="4" :sm="6" :md="4" :lg="3" :xl="5">
+    <el-card class="box-card">
+          <div>slot</div>
+    </el-card>
   </el-col>
 </el-row>
 </template>
 
 <script>
 import axios from "axios";
-import { Row, Col, Card } from 'element-ui';
+import { Row, Col, Card } from "element-ui";
 export default {
   name: "dashboard",
   data: function() {
@@ -67,13 +67,17 @@ export default {
     }
   },
   components: {
-     'el-row' : Row,
-     'el-col' : Col,
-     'el-card' : Card,
+    "el-row": Row,
+    "el-col": Col,
+    "el-card": Card
   }
 };
 </script>
 <style scoped>
-    @import url("element-ui/lib/theme-chalk/index.css");
+@import url("element-ui/lib/theme-chalk/index.css");
+
+.box-card {
+  width: 240 px;
+}
 </style>
 
