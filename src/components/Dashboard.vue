@@ -1,26 +1,81 @@
 <template>
-<el-row :gutter="10">
-  <el-col :xs="4" :sm="6" :md="4" :lg="3" :xl="5">
-    <el-card class="box-card">
-          <div>dick</div>
-    </el-card>
-  </el-col>
-  <el-col :xs="4" :sm="6" :md="5" :lg="7" :xl="11">
-    <el-card class="box-card">
-          <div>bitch</div>
-    </el-card>
-  </el-col>
-  <el-col :xs="4" :sm="6" :md="5" :lg="7" :xl="11">
-    <el-card class="box-card">
-          <div>puss</div>
-    </el-card>
-  </el-col>
-  <el-col :xs="4" :sm="6" :md="4" :lg="3" :xl="5">
-    <el-card class="box-card">
-          <div>slot</div>
-    </el-card>
-  </el-col>
-</el-row>
+<div>
+  <el-row type="flex" justify="space-around" class="row">
+    <el-col :span="5">
+      <el-card>
+        <div slot="header" class="clearfix">
+          <span>濕度</span>
+        </div>
+        <div>
+          <span>{{humidity}}</span>
+        </div>
+      </el-card>
+    </el-col>
+    <el-col :span="5">
+      <el-card>
+        <div slot="header" class="clearfix">
+          <span>溫度</span>
+        </div>
+        <div>
+          <span>{{temperture}}</span>
+          
+        </div>
+      </el-card>
+    </el-col>
+    <el-col :span="5"> 
+      <el-card>
+        <div slot="header" class="clearfix">
+          <span>土壤濕度1</span>
+        </div>
+        <div>
+          <span>{{soild1humid1}}</span>
+        </div>
+      </el-card>
+    </el-col>
+    <el-col :span="5">
+      <el-card>
+        <div slot="header" class="clearfix">
+          <span>土壤濕度2</span>
+        </div>
+        <div>
+          <span>{{soild1humid2}}</span>
+        </div>
+      </el-card>
+    </el-col>
+  </el-row>
+    <el-row type="flex" justify="space-around" class="row">
+    <el-col :span="5">
+      <el-card>
+        <div slot="header" class="clearfix">
+          <span>Ph值</span>
+        </div>
+        <div>
+          <span>{{ph}}</span>
+        </div>
+      </el-card>
+    </el-col>
+    <el-col :span="5">
+      <el-card>
+        <div slot="header" class="clearfix">
+          <span>水箱1高度</span>
+        </div>
+        <div>
+          <span>{{waterLevelTank1}}</span>
+        </div>
+      </el-card>
+    </el-col>
+    <el-col :span="5"> 
+      <el-card>
+        <div slot="header" class="clearfix">
+          <span>水箱2高度</span>
+        </div>
+        <div>
+          <span>{{waterLevelTank2}}</span>
+        </div>
+      </el-card>
+    </el-col>
+  </el-row>
+</div>
 </template>
 
 <script>
@@ -30,13 +85,13 @@ export default {
   name: "dashboard",
   data: function() {
     return {
-      humidity: "",
-      temperture: "",
-      soild1humid1: "",
-      soild1humid2: "",
-      ph: "",
-      waterLevelTank1: "",
-      waterLevelTank2: ""
+      humidity: "22",
+      temperture: "33",
+      soild1humid1: "12",
+      soild1humid2: "43",
+      ph: "8.02",
+      waterLevelTank1: "2",
+      waterLevelTank2: "3"
     };
   },
   created: function() {
@@ -75,9 +130,8 @@ export default {
 </script>
 <style scoped>
 @import url("element-ui/lib/theme-chalk/index.css");
-
-.box-card {
-  width: 240 px;
+.row {
+  padding: 15px;
 }
 </style>
 
