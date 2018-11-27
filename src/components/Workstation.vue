@@ -14,19 +14,19 @@
       </div>
       <div>
         <el-card  class="block">
-          <div slot="header" class="clearfix">
+          <div slot="header">
             <span>機械臂控制</span>
           </div>
           <div>
-            <span class="demonstration">x 軸</span>
+            <span>x 軸</span>
             <el-slider v-model="xAxisStep" show-input max="5000"></el-slider>
           </div>
           <div>
-            <span class="demonstration">y 軸</span>
+            <span>y 軸</span>
             <el-slider v-model="yAxisStep" show-input max="5000"></el-slider>
           </div>
           <div>
-            <span class="demonstration">z 軸</span>
+            <span>z 軸</span>
             <el-slider v-model="zAxisStep" show-input max="5000"></el-slider>
           </div>
           <el-button class ="button" type="primary" v-on:click="null">執行</el-button>
@@ -38,12 +38,12 @@
             <span>水與肥料</span>
           </div>
           <div>
-            <span class="demonstration">澆水</span>
-            <el-slider v-model="Waterpump" :step="1" show-stops max="10"></el-slider>
+            <span>澆水</span>
+            <el-slider v-model="waterpump" :step="1" show-stops max="10"></el-slider>
           </div>
           <div>
-            <span class="demonstration">施肥</span>
-            <el-slider v-model="Fertillizerpump" :step="1" show-stops max="10"></el-slider>
+            <span>施肥</span>
+            <el-slider v-model="fertillizerpump" :step="1" show-stops max="10"></el-slider>
           </div>
           <el-button class ="button" type="primary" v-on:click="null">執行</el-button>
         </el-card>
@@ -53,21 +53,7 @@
           <div slot="header" class="clearfix">
             <span>LED光色</span>
           </div>
-            <el-switch
-                v-model="LEDR"
-                active-color="#F56C6C"
-                inactive-color="#909399">
-            </el-switch>
-            <el-switch
-                v-model="LEDG"
-                active-color="#67C23A"
-                inactive-color="#909399">
-            </el-switch>
-            <el-switch
-                v-model="LEDB"
-                active-color="#409EFF"
-                inactive-color="#909399">
-            </el-switch>
+          <el-color-picker v-model="LEDColor"  :predefine="predefineColors"></el-color-picker>
           <el-button class ="button" type="primary" v-on:click="null">執行</el-button>
         </el-card>  
       </div>
@@ -77,7 +63,7 @@
 
 <script>
 import axios from "axios";
-import { Row, Col, Card, Slider, Button } from "element-ui";
+import { Row, Col, Card, Slider, Button, ColorPicker } from "element-ui";
 export default {
   name: "dashboard",
   data: function() {
@@ -85,11 +71,18 @@ export default {
       xAxisStep: "",
       yAxisStep: "",
       zAxisStep: "",
-      LEDR: false,
-      LEDG: false,
-      LEDB: false,
-      Waterpump: "",
-      Fertillizerpump: "",
+      LEDColor: '#409EFF',
+      predefineColors: [
+          '#ff4500',
+          '#ff8c00',
+          '#ffd700',
+          '#90ee90',
+          '#00ced1',
+          '#1e90ff',
+          '#c71585',
+        ],
+      waterpump: "",
+      fertillizerpump: "",
       currentDate: ""
     };
   },
@@ -125,7 +118,8 @@ export default {
     "el-col": Col,
     "el-card": Card,
     "el-slider": Slider,
-    "el-button": Button
+    "el-button": Button,
+    "el-color-picker": ColorPicker
   }
 };
 </script>
