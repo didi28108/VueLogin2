@@ -60,7 +60,7 @@ let router = new Router({
     },
     {
       path: '/history',
-      name: 'history',
+      name: 'historyView',
       components: {
         default: HistoryView,
         nav: Header

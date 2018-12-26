@@ -96,7 +96,7 @@ export default {
   },
   created: function() {
     this.da = "loading";
-    var self = this;
+    let self = this;
     self.getData();
     setInterval(() => {
       self.getData();

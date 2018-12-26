@@ -5,14 +5,38 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: 'HelloWorld',
+  name: 'historyView',
   data () {
     return {
       msg: 'HistoryView'
     }
+  },
+  created: function() {
+    this.da = "loading";
+    let self = this;
+    self.getData();
+    setInterval(() => {
+      self.getData();
+    }, 100000);
+  },
+  methods: {
+    getData: function() {
+      var self = this;
+      axios
+        .get("https://vue-dashboard-login.firebaseio.com/.json?print=pretty")
+        .then(resp => {
+          self.msg = resp;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   }
+  
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
