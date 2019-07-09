@@ -57,7 +57,7 @@
           </div>
           <el-color-picker v-model="LEDColor"  :predefine="predefineColors"></el-color-picker>
           <el-button class ="button" type="primary" v-on:click="ChangeLEDState">執行</el-button>
-        </el-card>  
+        </el-card>
       </div>
     </el-col>
   </el-row>
@@ -90,13 +90,13 @@ export default {
     };
   },
   created: function() {
-    
+
   },
   methods: {
-    axiosGetRequest: function(requestUrl){
+    axiosGetRequest: function(requestJob, config){
       let self = this;
       axios
-        .get(requestUrl)
+        .post(`/api/control/${requestJob}`, config)
         .then(resp => {
           console.log(`job added:${requestUrl}`);
         })
@@ -106,31 +106,40 @@ export default {
     },
     goForward: function(){
       let self = this;
-      let goForwardUrl = `http://127.0.0.1:10423/method/goPoint?x=${self.xAxisStep}&y=${self.yAxisStep}&z=${self.zAxisStep}`;
-      self.axiosGetRequest(goForwardUrl);
+      self.axiosGetRequest('goPoint', {
+        x: self.xAxisStep,
+        y: self.yAxisStep,
+        z: self.zAxisStep
+      });
     },
     goBackward: function(){
       let self = this;
-      let backForwardUrl = `http://127.0.0.1:10423/method/backPoint?x=${self.xAxisStep}&y=${self.yAxisStep}&z=${self.zAxisStep}`;
-      self.axiosGetRequest(backForwardUrl);
+      self.axiosGetRequest('backPoint', {
+        x: self.xAxisStep,
+        y: self.yAxisStep,
+        z: self.zAxisStep
+      });
     },
     controlWaterPump: function(){
       let self = this;
       let waterSecond = 1000* self.waterpump;
-      let waterPumpUrl = `http://127.0.0.1:10423/method/controlWaterPump?state=true&time=${waterSecond}`;
-      self.axiosGetRequest(waterPumpUrl);
+      self.axiosGetRequest('controlWaterPump', {
+        state: true,
+        time: waterSecond
+      });
     },
     controlFertilizerPump: function(){
       let self = this;
       let fertilizerSecond = 1000* self.fertilizerpump;
-      let fertilizerPumpUrl = `http://127.0.0.1:10423/method/controlFertilizerPump?state=true&time=${fertilizerSecond}`;
-      self.axiosGetRequest(fertilizerPumpUrl);
+      self.axiosGetRequest('controlFertilizerPump', {
+        state: true,
+        time: fertilizerSecond
+      });
     },
     ChangeLEDState: function(){
       let self = this;
       let LEDColorFormat = self.LEDColor.slice(1);
-      let LEDUrl = `http://127.0.0.1:10423/method/changeLedState?color=${LEDColorFormat}`
-      self.axiosGetRequest(LEDUrl);
+      self.axiosGetRequest('changeLedState', { color: LEDColorFormat });
     }
   },
   components: {

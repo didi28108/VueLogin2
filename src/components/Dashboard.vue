@@ -18,11 +18,11 @@
         </div>
         <div>
           <span>{{temperture}}</span>
-          
+
         </div>
       </el-card>
     </el-col>
-    <el-col :span="5"> 
+    <el-col :span="5">
       <el-card>
         <div slot="header" class="clearfix">
           <span>土壤濕度1</span>
@@ -64,7 +64,7 @@
         </div>
       </el-card>
     </el-col>
-    <el-col :span="5"> 
+    <el-col :span="5">
       <el-card>
         <div slot="header" class="clearfix">
           <span>水箱2高度</span>
@@ -106,7 +106,7 @@ export default {
     getData: function() {
       var self = this;
       axios
-        .get("http://localhost:5438/data")
+        .get("/api/monitor/data")
         .then(resp => {
           self.humidity = resp.data.humidity;
           self.temperture = resp.data.temperture;
